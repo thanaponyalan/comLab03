@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, redirect
+from django.http import HttpResponseRedirect
 from .models import List
 from .forms import ListForm
 
@@ -24,3 +24,8 @@ def contact(request):
     surname="Yalan"
     email="thanaponyalan@gmail.com"
     return render(request,'contact.html',{"name" : name,"surname" : surname,"email" : email})
+
+def delete(request,itemID):
+    item=List.objects.get(pk=itemID)
+    item.delete()
+    return redirect('home')

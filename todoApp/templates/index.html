@@ -9,8 +9,7 @@
         <thead class="thead-dark">
             <tr>
                 <th>List(s)</th>
-                <th>Finish</th>
-                <th>Action</th>
+                <th colspan="2">Action</th>
             </tr>
         </thead>
         {% for todoList in all %}
@@ -18,13 +17,13 @@
             <tr class="table-secondary">
                 <td class="crossout">{{ todoList.item}}</td>
                 <td>{{ todoList.finished}}</td>
-                <td>Delete</td>
+                <td><a href="{% url 'delete' todoList.id %}">Delete</a></td>
             </tr>
             {% else %}
             <tr>
                 <td>{{ todoList.item}}</td>
                 <td>{{ todoList.finished}}</td>
-                <td>Delete</td>
+                <td><a href="{% url 'delete' todoList.id %}">Delete</a></td>
             </tr>
             {% endif %}
         {% endfor%}

@@ -1,3 +1,7 @@
 .crossout{
     text-decoration: line-through;
 }
+
+th{
+    text-align: center;
+}
