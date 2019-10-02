@@ -16,13 +16,13 @@
             {% if todoList.finished %} 
             <tr class="table-secondary">
                 <td class="crossout">{{ todoList.item}}</td>
-                <td>{{ todoList.finished}}</td>
+                <td><a href="{% url 'changeCross' todoList.id %}">Uncross</a></td>
                 <td><a href="{% url 'delete' todoList.id %}">Delete</a></td>
             </tr>
             {% else %}
             <tr>
                 <td>{{ todoList.item}}</td>
-                <td>{{ todoList.finished}}</td>
+                <td><a href="{% url 'changeCross' todoList.id %}">Cross out</a></td>
                 <td><a href="{% url 'delete' todoList.id %}">Delete</a></td>
             </tr>
             {% endif %}

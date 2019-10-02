@@ -29,3 +29,9 @@ def delete(request,itemID):
     item=List.objects.get(pk=itemID)
     item.delete()
     return redirect('home')
+
+def changeCross(request,itemID):
+    targetObj=List.objects.get(pk=itemID)
+    targetObj.finished=not targetObj.finished
+    targetObj.save()
+    return redirect('home')
